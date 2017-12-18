@@ -1,5 +1,5 @@
 # python-3dRudder
-Programme en python pour le 3dRudder
+Programmes en python pour le 3dRudder
 ====================================
 
 ## Dépendances
