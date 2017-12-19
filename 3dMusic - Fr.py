@@ -132,7 +132,11 @@ def jeu():
         print ("et ensuite la reproduire sur le 3dRudder")
         print ()
         print ("--------------------")
-        d=int(input("Entrez la difficulte de 1 (diificile) a 5 (facile) : "))
+        try:
+                d=int(input("Entrez la difficulte de 1 (difficile) a 5 (facile) : "))
+        except ValueError as e :
+                print ("La valeur entrée n'est pas correcte")
+                d=5
         if 1<=d<=5:
                 s=0
                 for j in range (0,5):
@@ -215,7 +219,11 @@ def jeu():
                                 print ("|Augmentez maintenant la difficulte   |")
                 print ("---------------------------------------")
                 print ()
-                g=int(input("Voulez-vous enregistrer ce score (0/1) ? : "))
+                try :
+                        g=int(input("Voulez-vous enregistrer ce score (0/1) ? : "))
+                except ValueError as f:
+                        print ("Le choix n'a pas été reconnu")
+                        g=0
                 db=sqlite3.connect('score.db')
                 cursor=db.cursor()
                 if g==1:
@@ -247,7 +255,7 @@ def score ():
                 db.close ()
         else:
                 print ()
-                print ("jouer au jeu et enraegistrer le score auparavant")
+                print ("jouer au jeu et enregistrer le score auparavant")
                 print ()
         
 ##########################################################
@@ -267,7 +275,7 @@ val_max=platform.architecture()
 if (val_max[0]=='32bit') : 
         from win32.ns3DRudder import * #import SDk 3dRudder
 else:
-        from x64.ns3DRudder import * #import SDk 3dRudder
+        from x64.Python352.ns3DRudder import * #import SDk 3dRudder
 
 
 # Init du SDK 3dRudder  
